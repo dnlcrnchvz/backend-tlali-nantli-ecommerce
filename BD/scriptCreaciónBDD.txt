@@ -1,0 +1,123 @@
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema tlaliNantliBD
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema tlaliNantliBD
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS tlaliNantliBD DEFAULT CHARACTER SET utf8 ;
+USE tlaliNantliBD ;
+
+
+
+-- -----------------------------------------------------
+-- Table tlaliNantliBD.Usuarios
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS tlaliNantliBD.Usuarios (
+  idUsuarios BIGINT NOT NULL AUTO_INCREMENT,
+  nombre VARCHAR(45) NOT NULL,
+  apellidoPaterno VARCHAR(45) NOT NULL,
+  apellidoMaterno VARCHAR(45) NOT NULL,
+  telefono VARCHAR(45) NOT NULL,
+  correo VARCHAR(45) NOT NULL,
+  contraseña VARCHAR(45) NOT NULL,
+  administracion TINYINT(1) NOT NULL,
+  PRIMARY KEY (idUsuarios))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table tlaliNantliBD.Categorias
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS tlaliNantliBD.Categorias (
+  idCategorias INT NOT NULL AUTO_INCREMENT,
+  nombre VARCHAR(45) NOT NULL,
+  descripcion VARCHAR(100) NOT NULL,
+  PRIMARY KEY (idCategorias))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table tlaliNantliBD.Productos
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS tlaliNantliBD.Productos (
+  idProductos INT NOT NULL AUTO_INCREMENT,
+  nombre VARCHAR(45) NOT NULL,
+  precio DECIMAL(5,2) NOT NULL,
+  descripcion VARCHAR(100) NOT NULL,
+  stock INT NOT NULL,
+  Categorias_idCategorias INT NOT NULL,
+  PRIMARY KEY (idProductos, Categorias_idCategorias),
+  INDEX fk_Productos_Categorias1_idx (Categorias_idCategorias ASC) VISIBLE,
+  CONSTRAINT fk_Productos_Categorias1
+    FOREIGN KEY (Categorias_idCategorias)
+    REFERENCES tlaliNantliBD.Categorias (idCategorias)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table tlaliNantliBD.Estado_Compra
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS tlaliNantliBD.Estado_Compra (
+  idEstado INT NOT NULL AUTO_INCREMENT,
+  nombre VARCHAR(45) NOT NULL,
+  PRIMARY KEY (idEstado))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table tlaliNantliBD.Compras
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS tlaliNantliBD.Compras (
+  idCompras BIGINT NOT NULL AUTO_INCREMENT,
+  fecha DATE NOT NULL,
+  Usuarios_idUsuarios BIGINT NOT NULL,
+  Estado_idEstado INT NOT NULL,
+  PRIMARY KEY (idCompras, Usuarios_idUsuarios, Estado_idEstado),
+  INDEX fk_Compras_Usuarios1_idx (Usuarios_idUsuarios ASC) VISIBLE,
+  INDEX fk_Compras_Estado1_idx (Estado_idEstado ASC) VISIBLE,
+  CONSTRAINT fk_Compras_Usuarios
+    FOREIGN KEY (Usuarios_idUsuarios)
+    REFERENCES tlaliNantliBD.Usuarios (idUsuarios)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_Compras_Estado1
+    FOREIGN KEY (Estado_idEstado)
+    REFERENCES tlaliNantliBD.Estado_Compra (idEstado)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table tlaliNantliBD.Compras_has_Productos
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS tlaliNantliBD.Compras_has_Productos (
+  Compras_idCompras BIGINT NOT NULL,
+  Productos_idProductos INT NOT NULL,
+  total DECIMAL(6,2) NOT NULL,
+  numeroDeProductos INT NOT NULL,
+  PRIMARY KEY (Compras_idCompras, Productos_idProductos),
+  INDEX fk_Compras_has_Productos_Productos1_idx (Productos_idProductos ASC) VISIBLE,
+  INDEX fk_Compras_has_Productos_Compras1_idx (Compras_idCompras ASC) VISIBLE,
+  CONSTRAINT fk_Compras_has_Productos_Compras1
+    FOREIGN KEY (Compras_idCompras)
+    REFERENCES tlaliNantliBD.Compras (idCompras)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_Compras_has_Productos_Productos1
+    FOREIGN KEY (Productos_idProductos)
+    REFERENCES tlaliNantliBD.Productos (idProductos)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

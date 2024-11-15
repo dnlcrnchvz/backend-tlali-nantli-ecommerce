@@ -1,5 +1,6 @@
 package com.tlaliNantli.tlaliNantliBackend.util;
 
-public class SetUp {
+public class SetUp
+{
 
 }

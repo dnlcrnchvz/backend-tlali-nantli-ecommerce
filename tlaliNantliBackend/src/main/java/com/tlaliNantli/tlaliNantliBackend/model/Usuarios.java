@@ -29,6 +29,8 @@ public class Usuarios
 	private String contrasenia;
 	@Column(name="administracion",nullable=false)
 	private boolean administracion;
+	@Column(name="activo")
+	private boolean activo;
 	
 	//Constructores
 	protected Usuarios() {}
@@ -121,6 +123,16 @@ public class Usuarios
 	public void setAdministracion(boolean administracion)
 	{
 		this.administracion = administracion;
+	}
+	
+	//get/set activo
+	public boolean isActivo()
+	{
+		return activo;
+	}
+	public void setActivo(boolean activo)
+	{
+		this.activo = activo;
 	}
 	
 	//toString con todos los atributos

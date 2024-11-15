@@ -32,18 +32,17 @@ public class Usuarios {
 	private boolean activo;
 
 	// Constructores
-	protected Usuarios() {
-	}
-
+	protected Usuarios() {}
+s
 	public Usuarios(String nombre, String apellidoP, String apellidoM, String telefono, String correo,
-			String contrasenia, boolean administracion) {
+			String contrasenia)
+	{
 		this.nombre = nombre;
 		this.apellidoP = apellidoP;
 		this.apellidoM = apellidoM;
 		this.telefono = telefono;
 		this.correo = correo;
 		this.contrasenia = contrasenia;
-		this.administracion = administracion;
 	}
 
 	// get/set id

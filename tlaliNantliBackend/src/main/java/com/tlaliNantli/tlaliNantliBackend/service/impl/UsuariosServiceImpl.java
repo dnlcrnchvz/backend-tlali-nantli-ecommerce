@@ -7,16 +7,19 @@ import com.tlaliNantli.tlaliNantliBackend.model.Usuarios;
 import com.tlaliNantli.tlaliNantliBackend.repository.UsuariosRepository;
 import com.tlaliNantli.tlaliNantliBackend.service.UsuariosService;
 
-public class UsuariosServiceImpl implements UsuariosService {
+public class UsuariosServiceImpl implements UsuariosService
+{
 	// Inyección de dependencia
 	UsuariosRepository usuarioRepository;
 
 	@Override
-	public Usuarios crearUsuario(Usuarios usuarios) {
+	public Usuarios crearUsuario(Usuarios usuarios)
+	{
 		// Validar si ya existe un usuario registrado con el correo
 		Optional<Usuarios> optionalUsuario = usuarioRepository.findByCorreo(usuarios.getCorreo());
 
-		if (optionalUsuario.isPresent()) {
+		if (optionalUsuario.isPresent())
+		{
 			throw new IllegalStateException(
 					"Ya se encuentra registrado un usuario con el correo " + usuarios.getCorreo());
 		}
@@ -43,19 +46,23 @@ public class UsuariosServiceImpl implements UsuariosService {
 	}
 
 	@Override
-	public Usuarios getUsuarioById(Long id) {
+	public Usuarios getUsuarioById(Long id)
+	{
 		Optional<Usuarios> optionalUsuario = usuarioRepository.findById(id);
 
-		if (optionalUsuario.isEmpty()) {
+		if (optionalUsuario.isEmpty())
+		{
 			throw new IllegalStateException("El usuario no se encuentra registrado");
 		}
 		return null;
 	}
 
 	@Override
-	public Usuarios getUsuarioByCorreo(String correo) {
+	public Usuarios getUsuarioByCorreo(String correo)
+	{
 		Optional<Usuarios> optionalUsuario = usuarioRepository.findByCorreo(correo);
-		if (optionalUsuario.isEmpty()) {
+		if (optionalUsuario.isEmpty())
+		{
 			throw new IllegalStateException("No se encuentra un usuario registrado con el correo " + correo);
 		}
 
@@ -63,7 +70,8 @@ public class UsuariosServiceImpl implements UsuariosService {
 	}
 
 	@Override
-	public Set<Usuarios> getUsuarios(boolean isActive) {
+	public Set<Usuarios> getUsuarios(boolean isActive) 
+	{
 		Set<Usuarios> usuarios;
 		if (isActive) {
 			usuarios = usuarioRepository.findUsuariosActivos();
@@ -74,16 +82,23 @@ public class UsuariosServiceImpl implements UsuariosService {
 	}
 
 	@Override
-	public Usuarios editarUsuario(Usuarios usuario, Long id) {
-		// TODO colocar los atributos que se podrán editar
-		return null;
+	public Usuarios editarUsuario(Usuarios usuario, String correo)
+	{
+		Usuarios usuarioExistente=getUsuarioByCorreo(correo);
+		usuarioExistente.setNombre(usuario.getNombre());
+		usuarioExistente.setApellidoP(usuario.getApellidoP());
+		usuarioExistente.setApellidoM(usuario.getApellidoM());
+		usuarioExistente.setContrasenia(usuario.getContrasenia());
+		usuarioExistente.setTelefono(usuario.getTelefono());
+		
+		return usuarioRepository.save(usuarioExistente);
 	}
 
 	@Override
-	public void borrarUsuario(Long id) {
-		Usuarios usuarioExistente = getUsuarioById(id);
+	public void borrarUsuario(String correo)
+	{
+		Usuarios usuarioExistente = getUsuarioByCorreo(correo);
 		usuarioExistente.setActivo(false);// Se cambia a inactivo el usuario
 		usuarioRepository.save(usuarioExistente);
 	}
-
 }

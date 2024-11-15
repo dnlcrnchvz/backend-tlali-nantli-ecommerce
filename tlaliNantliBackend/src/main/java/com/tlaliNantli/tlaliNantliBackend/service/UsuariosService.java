@@ -13,7 +13,7 @@ public interface UsuariosService {
 
 	Set<Usuarios> getUsuarios(boolean isActive);
 
-	Usuarios editarUsuario(Usuarios usuario, Long id);
+	Usuarios editarUsuario(Usuarios usuario, String correo);
 
-	void borrarUsuario(Long id);
+	void borrarUsuario(String correo);
 }

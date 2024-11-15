@@ -1,9 +1,5 @@
 package com.tlaliNantli.tlaliNantliBackend.repository;
 
-import com.tlaliNantli.tlaliNantliBackend.model.Categorias;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+public interface CategoriasRepository {
 
-@Repository
-public interface CategoriasRepository extends JpaRepository<Categorias, Integer> {
 }

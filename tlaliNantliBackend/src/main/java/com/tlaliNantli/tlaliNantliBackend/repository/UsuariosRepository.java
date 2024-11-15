@@ -7,29 +7,38 @@ import java.util.Set;
 import org.springframework.data.repository.CrudRepository;
 import com.tlaliNantli.tlaliNantliBackend.model.Usuarios;
 
-public interface UsuariosRepository extends CrudRepository<Usuarios,Long>
-{
-	//Consultas de registros por:
-	//id
+public interface UsuariosRepository extends CrudRepository<Usuarios, Long> {
+	// Consultas de registros por:
+	// id
 	Usuarios findById(long id);
-	//nombre
+
+	// nombre
 	List<Usuarios> findByNombre(String nombre);
-	//apellido paterno
+
+	// apellido paterno
 	List<Usuarios> findByApellidoP(String apellidoP);
-	//apellido materno
+
+	// apellido materno
 	List<Usuarios> findByApellidoM(String apellidoM);
-	//telefono
+
+	// telefono
 	List<Usuarios> findByTelefono(String telefono);
-	//correo
+
+	// correo
 	Optional<Usuarios> findByCorreo(String correo);
-	//contrasenia
+
+	// contrasenia
 	List<Usuarios> findByContrasenia(String contrasenia);
-	//administracion=true
+
+	// administracion=true
 	Set<Usuarios> findByAdministracionTrue();
-	//administracion=false
+
+	// administracion=false
 	Set<Usuarios> findByAdministracionFalse();
-	//usuarios activos
+
+	// usuarios activos
 	Set<Usuarios> findUsuariosActivos();
-	//usuarios inactivos
+
+	// usuarios inactivos
 	Set<Usuarios> findUsuariosInactivos();
 }

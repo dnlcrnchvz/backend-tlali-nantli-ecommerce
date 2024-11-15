@@ -12,27 +12,29 @@ import jakarta.persistence.ManyToOne;
 @Entity
 public class Compras {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private static Long id;
 	private Date fecha;
 	private boolean active;
-	
-@ManyToOne // muchas compras a un usuario
-@JoinColumn(name = "Usuarios_id")
-private Usuarios usuario;
-@ManyToOne // una compra y varios estados
-@JoinColumn (name = "Estado_id")
-private EstadoCompra estado;
-	
-	public Compras() {}
+
+	@ManyToOne // muchas compras a un usuario
+	@JoinColumn(name = "Usuarios_id")
+	private Usuarios usuario;
+	@ManyToOne // una compra y varios estados
+	@JoinColumn(name = "Estado_id")
+	private EstadoCompra estado;
+
+	public Compras() {
+	}
 
 	public Compras(Long id, Date fecha, Usuarios usuario, EstadoCompra estado) {
 		Compras.id = id;
 		this.fecha = fecha;
 		this.usuario = usuario;
 		this.estado = estado;
-		
-}
+
+	}
+
 	public static Long getId() {
 		return id;
 	}
@@ -64,9 +66,11 @@ private EstadoCompra estado;
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
+
 	@Override
 	public String toString() {
-		return "Compra [id=" + id + ", fecha=" + fecha + ", usuario= " + usuario + ", estado de la compra=" + estado + "]";
+		return "Compra [id=" + id + ", fecha=" + fecha + ", usuario= " + usuario + ", estado de la compra=" + estado
+				+ "]";
 	}
 
 	public boolean isActive() {
@@ -77,6 +81,4 @@ private EstadoCompra estado;
 		this.active = active;
 	}
 
-	
-	
 }

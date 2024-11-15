@@ -22,46 +22,42 @@ import com.tlaliNantli.tlaliNantliBackend.service.ComprasService;
 @Controller
 @ResponseBody
 // @RestController
-@RequestMapping("/api/v1/compras") //http:localhost:8080/api/v1/compras
+@RequestMapping("/api/v1/compras") // http:localhost:8080/api/v1/compras
 public class ComprasController {
-ComprasService comprasService;
+	ComprasService comprasService;
 
-public ComprasController(ComprasService comprasService) {
-	this.comprasService = comprasService;
-}
-@GetMapping({"id"}) //http:localhost:8080/api/v1/compras/{id}
-Compras getOrderById(@PathVariable Long id) {
-	Compras compraExistente = comprasService.getOrderById(id);
-	return compraExistente;
-}
-@GetMapping // // http:localhost:8080/api/v1/customers?active=false
-Set <Compras> getAllOrders(
-		@RequestParam(
-				name="active",
-				required = false, 
-				defaultValue = "true"
-			) boolean active
-		){
-	return comprasService.getAllOrders(active);
-}
+	public ComprasController(ComprasService comprasService) {
+		this.comprasService = comprasService;
+	}
 
-@PostMapping //http:localhost:8080/api/v1/compras
-ResponseEntity <Compras> createOrder(@RequestBody Compras newOrder) {
-	Compras registeredOrder = comprasService.createOrder(newOrder);
-	return ResponseEntity.status(201).body(registeredOrder);
-}
-@PutMapping("{id}") // http:localhost:8080/api/v1/compras/{id}
-ResponseEntity<Compras> updateOrder(@PathVariable("id") Long id ,@RequestBody Compras compras) {
-	Compras updatedOrder = comprasService.updateOrder(compras, id);
-	return ResponseEntity.ok(updatedOrder);
-}
-@DeleteMapping({"id"}) // http:localhost:8080/api/v1/compras/{id}
-	ResponseEntity<String> deleteOrder(@PathVariable("id")Long id){
-	comprasService.deleteOrder(id);
-	return ResponseEntity.ok("La orden con el id " + id + "fue eliminada con exito.");
-	
-}
+	@GetMapping({ "id" }) // http:localhost:8080/api/v1/compras/{id}
+	Compras getOrderById(@PathVariable Long id) {
+		Compras compraExistente = comprasService.getOrderById(id);
+		return compraExistente;
+	}
 
+	@GetMapping // // http:localhost:8080/api/v1/customers?active=false
+	Set<Compras> getAllOrders(@RequestParam(name = "active", required = false, defaultValue = "true") boolean active) {
+		return comprasService.getAllOrders(active);
+	}
 
+	@PostMapping // http:localhost:8080/api/v1/compras
+	ResponseEntity<Compras> createOrder(@RequestBody Compras newOrder) {
+		Compras registeredOrder = comprasService.createOrder(newOrder);
+		return ResponseEntity.status(201).body(registeredOrder);
+	}
+
+	@PutMapping("{id}") // http:localhost:8080/api/v1/compras/{id}
+	ResponseEntity<Compras> updateOrder(@PathVariable("id") Long id, @RequestBody Compras compras) {
+		Compras updatedOrder = comprasService.updateOrder(compras, id);
+		return ResponseEntity.ok(updatedOrder);
+	}
+
+	@DeleteMapping({ "id" }) // http:localhost:8080/api/v1/compras/{id}
+	ResponseEntity<String> deleteOrder(@PathVariable("id") Long id) {
+		comprasService.deleteOrder(id);
+		return ResponseEntity.ok("La orden con el id " + id + "fue eliminada con exito.");
+
+	}
 
 }

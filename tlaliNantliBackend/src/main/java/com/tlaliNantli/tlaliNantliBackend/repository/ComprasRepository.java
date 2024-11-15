@@ -11,11 +11,16 @@ import com.tlaliNantli.tlaliNantliBackend.model.EstadoCompra;
 import com.tlaliNantli.tlaliNantliBackend.model.Usuarios;
 
 public interface ComprasRepository extends CrudRepository<Compras, Long> {
-Optional <Compras> findById (Long id);
-Optional <Compras> findByDate (Date fecha);
-Optional <Compras> findByUser (Usuarios usuario);
-Optional <Compras> findByState (EstadoCompra estado);
-Set<Compras> findAllByActiveFalse();
-Set<Compras> findAllByActiveTrue();
+	Optional<Compras> findById(Long id);
+
+	Optional<Compras> findByDate(Date fecha);
+
+	Optional<Compras> findByUser(Usuarios usuario);
+
+	Optional<Compras> findByState(EstadoCompra estado);
+
+	Set<Compras> findAllByActiveFalse();
+
+	Set<Compras> findAllByActiveTrue();
 
 }

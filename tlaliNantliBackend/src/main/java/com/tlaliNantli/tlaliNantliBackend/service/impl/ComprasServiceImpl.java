@@ -22,9 +22,9 @@ public class ComprasServiceImpl implements ComprasService {
 	@Override
 	public Compras createOrder(Compras Compra) {
 		// verificar si existe la compra
-		Optional<Compras> optionalOrder = comprasRepository.findById(Compras.getId());
+		Optional<Compras> optionalOrder = comprasRepository.findById(Compra.getId());
 		if (optionalOrder.isPresent()) {
-			throw new IllegalStateException("La compra esta registrada con el ID: " + Compras.getId());
+			throw new IllegalStateException("La compra esta registrada con el ID: " + Compra.getId());
 		}
 		Compras nuevaCompra = comprasRepository.save(Compra);
 		return nuevaCompra;
@@ -60,7 +60,7 @@ public class ComprasServiceImpl implements ComprasService {
 
 	@Override
 	public Compras getOrderByUser(Usuarios usuario) {
-		Optional<Compras> optionalOrder = comprasRepository.findByUser(usuario);
+		Optional<Compras> optionalOrder = comprasRepository.findByUsuario(usuario);
 		if (optionalOrder.isEmpty()) {
 			throw new IllegalStateException("No existe una orden de compra del usuario " + usuario);
 		}

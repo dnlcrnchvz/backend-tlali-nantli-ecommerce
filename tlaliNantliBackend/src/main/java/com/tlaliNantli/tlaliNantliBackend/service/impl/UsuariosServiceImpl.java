@@ -74,9 +74,9 @@ public class UsuariosServiceImpl implements UsuariosService
 	{
 		Set<Usuarios> usuarios;
 		if (isActive) {
-			usuarios = usuarioRepository.findUsuariosActivos();
+			usuarios = usuarioRepository.findByActivoTrue();
 		} else {
-			usuarios = usuarioRepository.findUsuariosInactivos();
+			usuarios = usuarioRepository.findByActivoFalse();
 		}
 		return null;
 	}

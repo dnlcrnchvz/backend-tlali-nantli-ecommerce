@@ -13,9 +13,10 @@ import jakarta.persistence.ManyToOne;
 public class Compras {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private static Long id;
+	private Long id;
 	private Date fecha;
 	private boolean active;
+	private String correo;
 
 	@ManyToOne // muchas compras a un usuario
 	@JoinColumn(name = "Usuarios_id")
@@ -28,14 +29,14 @@ public class Compras {
 	}
 
 	public Compras(Long id, Date fecha, Usuarios usuario, EstadoCompra estado) {
-		Compras.id = id;
+		this.id = id;
 		this.fecha = fecha;
 		this.usuario = usuario;
 		this.estado = estado;
 
 	}
 
-	public static Long getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -65,6 +66,14 @@ public class Compras {
 
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
+	}
+
+	public String getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
 	}
 
 	@Override

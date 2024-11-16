@@ -1,16 +1,22 @@
 package com.tlaliNantli.tlaliNantliBackend.service;
 
-import com.tlaliNantli.tlaliNantliBackend.model.Producto;
+import com.tlaliNantli.tlaliNantliBackend.model.Productos;
 
 import java.util.List;
 
 public interface ProductosService {
 
-	List<Producto> obtenerTodosLosProductos();
+	List<Productos> obtenerTodosLosProductos(Long id);
 
-	Producto obtenerProductoPorId(Long id);
+	Productos obtenerProductoPorId(Long id);
 
-	Producto guardarProducto(Producto producto);
+	Productos guardarProducto(Productos producto);
 
 	void eliminarProducto(Long id);
+
+	Productos crearProducto(Productos nuevoProducto);
+
+	Productos actualizarProducto(Long id, Productos productoActualizado);
+
+	List<Productos> obtenerTodosLosProductos();
 }

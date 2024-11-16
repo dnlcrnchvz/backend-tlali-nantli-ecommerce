@@ -5,12 +5,13 @@ import jakarta.persistence.*;
 // Añadimos una tabla con nombre explícito
 @Entity
 @Table(name = "productos")
-public class Producto {
+public class Productos {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	private String nombre;
+	@Column(nullable = false) 
 	private Double precio;
 	private String descripcion;
 	private Integer stock;
@@ -21,11 +22,11 @@ public class Producto {
 	private Categorias categoria;
 
 	// Constructor vacío requerido por JPA
-	public Producto() {
+	public Productos() {
 	}
 
 	// Constructor con parámetros (sin incluir ID, ya que es autogenerado)
-	public Producto(String nombre, Double precio, String descripcion, Integer stock, Categoria categoria) {
+	public Productos(String nombre, Double precio, String descripcion, Integer stock, Categorias categoria) {
 		this.nombre = nombre;
 		this.precio = precio;
 		this.descripcion = descripcion;
@@ -74,11 +75,11 @@ public class Producto {
 		this.stock = stock;
 	}
 
-	public Categoria getCategoria() {
+	public Categorias getCategoria() {
 		return categoria;
 	}
 
-	public void setCategoria(Categoria categoria) {
+	public void setCategoria(Categorias categoria) {
 		this.categoria = categoria;
 	}
 

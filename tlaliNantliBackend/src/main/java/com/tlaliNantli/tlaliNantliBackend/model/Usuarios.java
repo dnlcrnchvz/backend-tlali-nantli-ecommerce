@@ -33,7 +33,7 @@ public class Usuarios {
 
 	// Constructores
 	protected Usuarios() {}
-s
+	
 	public Usuarios(String nombre, String apellidoP, String apellidoM, String telefono, String correo,
 			String contrasenia)
 	{

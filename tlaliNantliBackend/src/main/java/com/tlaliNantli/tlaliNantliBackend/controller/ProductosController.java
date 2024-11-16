@@ -1,7 +1,8 @@
 package com.tlaliNantli.tlaliNantliBackend.controller;
 
-import com.tlaliNantli.tlaliNantliBackend.model.Producto;
-import com.tlaliNantli.tlaliNantliBackend.service.ProductoService;
+import com.tlaliNantli.tlaliNantliBackend.model.Productos;
+import com.tlaliNantli.tlaliNantliBackend.service.ProductosService;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,39 +12,39 @@ import java.util.List;
 @RequestMapping("/api/v1/productos") // Consistencia en rutas
 public class ProductosController {
 
-	private final ProductoService productoService;
+	private final ProductosService productoService;
 
 	// Inyección de dependencias por constructor
-	public ProductosController(ProductoService productoService) {
+	public ProductosController(ProductosService productoService) {
 		this.productoService = productoService;
 	}
 
 	// Obtener todos los productos
 	@GetMapping
-	public ResponseEntity<List<Producto>> obtenerTodosLosProductos() {
-		List<Producto> productos = productoService.obtenerTodosLosProductos();
+	public ResponseEntity<List<Productos>> obtenerTodosLosProductos() {
+		List<Productos> productos = productoService.obtenerTodosLosProductos();
 		return ResponseEntity.ok(productos);
 	}
 
 	// Obtener un producto por ID
 	@GetMapping("/{id}")
-	public ResponseEntity<Producto> obtenerProductoPorId(@PathVariable Long id) {
-		Producto producto = productoService.obtenerProductoPorId(id);
+	public ResponseEntity<Productos> obtenerProductoPorId(@PathVariable Long id) {
+		Productos producto = productoService.obtenerProductoPorId(id);
 		return ResponseEntity.ok(producto);
 	}
 
 	// Crear un nuevo producto
 	@PostMapping
-	public ResponseEntity<Producto> crearProducto(@RequestBody Producto nuevoProducto) {
-		Producto productoRegistrado = productoService.crearProducto(nuevoProducto);
+	public ResponseEntity<Productos> crearProducto(@RequestBody Productos nuevoProducto) {
+		Productos productoRegistrado = productoService.crearProducto(nuevoProducto);
 		return ResponseEntity.status(201).body(productoRegistrado);
 	}
 
 	// Actualizar un producto por ID
 	@PutMapping("/{id}")
-	public ResponseEntity<Producto> actualizarProducto(@PathVariable("id") Long id,
-			@RequestBody Producto productoActualizado) {
-		Producto productoModificado = productoService.actualizarProducto(id, productoActualizado);
+	public ResponseEntity<Productos> actualizarProducto(@PathVariable("id") Long id,
+			@RequestBody Productos productoActualizado) {
+		Productos productoModificado = productoService.actualizarProducto(id, productoActualizado);
 		return ResponseEntity.ok(productoModificado);
 	}
 

@@ -37,8 +37,8 @@ public interface UsuariosRepository extends CrudRepository<Usuarios, Long> {
 	Set<Usuarios> findByAdministracionFalse();
 
 	// usuarios activos
-	Set<Usuarios> findUsuariosActivos();
+	Set<Usuarios> findByActivoTrue();
 
 	// usuarios inactivos
-	Set<Usuarios> findUsuariosInactivos();
+	Set<Usuarios> findByActivoFalse();
 }

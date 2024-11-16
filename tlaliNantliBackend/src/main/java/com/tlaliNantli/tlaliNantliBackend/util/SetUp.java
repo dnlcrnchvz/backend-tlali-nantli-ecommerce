@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 import com.tlaliNantli.tlaliNantliBackend.model.Compras;
 import com.tlaliNantli.tlaliNantliBackend.model.Usuarios;
@@ -17,9 +20,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.tlaliNantli.tlaliNantliBackend.model.Compras;
 import com.tlaliNantli.tlaliNantliBackend.repository.ComprasRepository;
 
-public class SetUp 
+@Configuration
+@Profile("MySQL")
+public class SetUp implements CommandLineRunner
 {
-
 	@Autowired
 	ComprasRepository repository;
 	@Autowired
@@ -71,6 +75,12 @@ public class SetUp
 		repository.save(new Compras());
 		repository.save(new Compras());
 		Optional<Compras> compras = repository.findById(1L);
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

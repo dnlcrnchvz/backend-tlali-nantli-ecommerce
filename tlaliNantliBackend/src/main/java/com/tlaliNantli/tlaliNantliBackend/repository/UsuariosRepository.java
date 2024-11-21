@@ -5,8 +5,11 @@ import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
 import com.tlaliNantli.tlaliNantliBackend.model.Usuarios;
 
+@Repository
 public interface UsuariosRepository extends CrudRepository<Usuarios, Long> {
 	// Consultas de registros por:
 	// id

@@ -22,12 +22,14 @@ public class CategoriasController {
     }
 
     @PostMapping
-    public Categorias guardarCategoria(@RequestBody Categorias categoria) {
-        return categoriasService.guardarCategoria(categoria);
+    ResponseEntity<Categorias>
+    guardarCategoria(@RequestBody Categorias nuevaCategoria) {
+    	Categorias registrarCategoria=categoriasService.guardarCategoria(nuevaCategoria);
+        return ResponseEntity.status(201).body(registrarCategoria);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Categorias> obtenerCategoriaPorId(@PathVariable int id) {
+    public ResponseEntity<Categorias> obtenerCategoriaPorId(@PathVariable Long id) {
         Categorias categoria = categoriasService.obtenerCategoriaPorId(id);
         if (categoria != null) {
             return new ResponseEntity<>(categoria, HttpStatus.OK);
@@ -36,8 +38,9 @@ public class CategoriasController {
         }
     }
 
-    @DeleteMapping("/{id}")
-    public void eliminarCategoria(@PathVariable int id) {
+    @DeleteMapping("{id}")
+    ResponseEntity<String> eliminarCategoria(@PathVariable Long id) {
         categoriasService.eliminarCategoria(id);
+        return ResponseEntity.ok("La categoria número "+id+" se ha eliminado exitosamente");
     }
 }

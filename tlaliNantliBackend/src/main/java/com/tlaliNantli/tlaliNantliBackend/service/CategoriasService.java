@@ -6,6 +6,6 @@ import java.util.List;
 public interface CategoriasService {
     List<Categorias> listarCategorias();
     Categorias guardarCategoria(Categorias categoria);
-    Categorias obtenerCategoriaPorId(int id);
-    void eliminarCategoria(int id);
+    Categorias obtenerCategoriaPorId(Long id);
+    void eliminarCategoria(Long id);
 }

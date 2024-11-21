@@ -5,7 +5,7 @@ import java.util.Set;
 import com.tlaliNantli.tlaliNantliBackend.model.Usuarios;
 
 public interface UsuariosService {
-	Usuarios crearUsuario(Usuarios usuarios);
+	Usuarios crearUsuario(Usuarios usuario);
 
 	Usuarios getUsuarioById(Long id);
 

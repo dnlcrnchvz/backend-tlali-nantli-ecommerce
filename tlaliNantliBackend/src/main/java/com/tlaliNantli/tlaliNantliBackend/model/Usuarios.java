@@ -9,16 +9,17 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "usuarios") // Tabla usuarios
-public class Usuarios {
+public class Usuarios
+{
 	// Se indican los atributos que se tienen en la tabla usuarios dentro de la BD
 	@Id // Atributo llave primaria
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // Llave primaria autoincrementable
 	private Long id;
 	@Column(name = "nombre", length = 45, nullable = false)
 	private String nombre;
-	@Column(name = "apellido_paterno", length = 45, nullable = false)
+	@Column(name = "apellidoP", length = 45, nullable = false)
 	private String apellidoP;
-	@Column(name = "apellido_materno", length = 45, nullable = false)
+	@Column(name = "apellidoM", length = 45, nullable = false)
 	private String apellidoM;
 	@Column(name = "telefono", length = 10, nullable = false)
 	private String telefono;

@@ -25,12 +25,12 @@ public class CategoriasServiceImpl implements CategoriasService {
     }
 
     @Override
-    public Categorias obtenerCategoriaPorId(int id) {
+    public Categorias obtenerCategoriaPorId(Long id) {
         return categoriasRepository.findById(id).orElse(null);
     }
 
     @Override
-    public void eliminarCategoria(int id) {
+    public void eliminarCategoria(Long id) {
         categoriasRepository.deleteById(id);
     }
 }

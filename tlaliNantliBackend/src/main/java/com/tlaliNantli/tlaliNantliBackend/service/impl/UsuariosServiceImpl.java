@@ -3,25 +3,30 @@ package com.tlaliNantli.tlaliNantliBackend.service.impl;
 import java.util.Optional;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.tlaliNantli.tlaliNantliBackend.model.Usuarios;
 import com.tlaliNantli.tlaliNantliBackend.repository.UsuariosRepository;
 import com.tlaliNantli.tlaliNantliBackend.service.UsuariosService;
 
+@Service
 public class UsuariosServiceImpl implements UsuariosService
 {
 	// Inyección de dependencia
+	@Autowired
 	UsuariosRepository usuarioRepository;
 
 	@Override
-	public Usuarios crearUsuario(Usuarios usuarios)
+	public Usuarios crearUsuario(Usuarios usuario)
 	{
 		// Validar si ya existe un usuario registrado con el correo
-		Optional<Usuarios> optionalUsuario = usuarioRepository.findByCorreo(usuarios.getCorreo());
+		Optional<Usuarios> optionalUsuario = usuarioRepository.findByCorreo(usuario.getCorreo());
 
 		if (optionalUsuario.isPresent())
 		{
 			throw new IllegalStateException(
-					"Ya se encuentra registrado un usuario con el correo " + usuarios.getCorreo());
+					"Ya se encuentra registrado un usuario con el correo " + usuario.getCorreo());
 		}
 
 		// TODO validar que el campo nombre no tenga carácteres especiales
@@ -36,11 +41,13 @@ public class UsuariosServiceImpl implements UsuariosService
 
 		// TODO validar que la contraseña cumpla las especificaciones
 
-		usuarios.setId(null);// Se fuerza a crear un nuevo registro
+		usuario.setId(null);// Se fuerza a crear un nuevo registro
 
-		usuarios.setActivo(true);// Poner como activo el nuevo registro
+		usuario.setActivo(true);// Poner como activo el nuevo registro
+		
+		usuario.setAdministracion(false);//Poner como falso el atributo administracion
 
-		Usuarios nuevoUsuario = usuarioRepository.save(usuarios);
+		Usuarios nuevoUsuario = usuarioRepository.save(usuario);
 
 		return nuevoUsuario;
 	}
@@ -73,12 +80,15 @@ public class UsuariosServiceImpl implements UsuariosService
 	public Set<Usuarios> getUsuarios(boolean isActive) 
 	{
 		Set<Usuarios> usuarios;
-		if (isActive) {
+		if (isActive) 
+		{
 			usuarios = usuarioRepository.findByActivoTrue();
-		} else {
+		} 
+		else
+		{
 			usuarios = usuarioRepository.findByActivoFalse();
 		}
-		return null;
+		return usuarios;
 	}
 
 	@Override

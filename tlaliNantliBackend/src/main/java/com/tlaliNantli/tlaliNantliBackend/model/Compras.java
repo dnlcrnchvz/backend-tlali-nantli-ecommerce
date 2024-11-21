@@ -1,20 +1,21 @@
 package com.tlaliNantli.tlaliNantliBackend.model;
 
-import java.util.Date;
-
+import java.time.LocalDateTime;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "compras") // Tabla compras
 public class Compras {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private Date fecha;
+	private LocalDateTime fecha;
 	private boolean active;
 	private String correo;
 
@@ -28,7 +29,7 @@ public class Compras {
 	public Compras() {
 	}
 
-	public Compras(Long id, Date fecha, Usuarios usuario, EstadoCompra estado) {
+	public Compras(Long id, LocalDateTime fecha, Usuarios usuario, EstadoCompra estado) {
 		this.id = id;
 		this.fecha = fecha;
 		this.usuario = usuario;
@@ -60,11 +61,11 @@ public class Compras {
 		this.estado = estado;
 	}
 
-	public Date getFecha() {
+	public LocalDateTime getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(Date fecha) {
+	public void setFecha(LocalDateTime fecha) {
 		this.fecha = fecha;
 	}
 

@@ -12,17 +12,17 @@ public class Categorias {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idCategorias;
+    private Long idCategorias;
 
     private String nombre;
     private String descripcion;
 
     // Getters y Setters
-    public int getIdCategorias() {
+    public Long getIdCategorias() {
         return idCategorias;
     }
 
-    public void setIdCategorias(int idCategorias) {
+    public void setIdCategorias(Long idCategorias) {
         this.idCategorias = idCategorias;
     }
 

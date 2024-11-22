@@ -1,4 +1,4 @@
-#🛒🌿✨ Tlali Nantli E-commerce es una plataforma especializada en la venta de productos orgánicos, diseñada para fomentar un estilo de vida saludable y promover el consumo responsable. 
+🛒🌿✨ Tlali Nantli E-commerce es una plataforma especializada en la venta de productos orgánicos, diseñada para fomentar un estilo de vida saludable y promover el consumo responsable. 
 Este proyecto representa más que un simple e-commerce de productos orgánicos; es el resultado de 12 semanas de esfuerzo y aprendizaje colectivo por parte de un grupo de mujeres talentosas. Algunas de nosotras comenzamos esta experiencia con poca o ninguna noción de tecnología, pero gracias a la colaboración, el compromiso y el apoyo constante de nuestras mentoras e instructores, hemos logrado alcanzar este nivel técnico.
 
 Tecnologías y metodología

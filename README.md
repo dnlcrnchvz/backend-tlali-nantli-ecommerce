@@ -8,17 +8,31 @@ Metodología 📅SCRUM: Trabajamos con sprints, retrospectivas y planificación 
 Más que un proyecto
 Sabemos que esto es solo el comienzo. Este e-commerce es una pequeña muestra del potencial que podemos alcanzar, y estamos convencidas de que podemos lograr grandes cosas en el futuro. Agradecemos profundamente a quienes nos guiaron en este camino, demostrando que con apoyo, aprendizaje y esfuerzo, las posibilidades son infinitas. 🌟
 
-🔧 Instalación
-🛠 Despliegue
-🔗 How to clone
-💻 Demo
+ ## 🔧 Instalación
+ ## 🛠 Despliegue
+ ## 🔗 How to clone
+ ## 💻 Demo
+ ## 👩🏽‍💻 Autoras
 
-👩🏽‍💻 Autoras
-Daniela Cerón Chávez 🧜🏽‍♀️ | LinkedIn: https://www.linkedin.com/in/dnlcrnchvz/
-Estefany Contreras Sánchez 👩‍💻 | LinkedIn: https://www.linkedin.com/in/estefany-contreras-s%C3%A1nchez-/
-Circe Delgadillo López | https://www.linkedin.com/in/circe-delgadillo/
-Lizbeth Díaz Feria 🐥 | LinkedIn: https://www.linkedin.com/in/lizbethdiazf/
-Ranfi Leyva Pérez 🛫 | LinkedIn: www.linkedin.com/in/ranfileyva
-Sara Abigail Martínez Reyes 🌎 | Linkedin: www.linkedin.com/in/sara-mtz-reyes
-Alma Valeria Martínez Tamariz | LinkedIn: https://www.linkedin.com/in/almatamariz
-Lorena Maria Raygoza Ibarra | linkedIn: www.linkedin.com/in/lorena-raygoza09  
+ 1. Daniela Cerón Chávez 🧜🏽‍♀️ | LinkedIn: https://www.linkedin.com/in/dnlcrnchvz/
+ 2. Estefany Contreras Sánchez 👩‍💻 | LinkedIn: https://www.linkedin.com/in/estefany-contreras-s%C3%A1nchez-/
+ 3. Circe Delgadillo López | https://www.linkedin.com/in/circe-delgadillo/ 
+ 4. Lizbeth Díaz Feria 🐥 | LinkedIn: https://www.linkedin.com/in/lizbethdiazf/
+ 5. Ranfi Leyva Pérez 🛫 | LinkedIn: www.linkedin.com/in/ranfileyva
+ 6. Sara Abigail Martínez Reyes 🌎 | Linkedin: www.linkedin.com/in/sara-mtz-reyes
+ 7. Alma Valeria Martínez Tamariz | LinkedIn: https://www.linkedin.com/in/almatamariz
+ 8. Lorena Maria Raygoza Ibarra | linkedIn: www.linkedin.com/in/lorena-raygoza09
+
+ ## 🧾 Licencia
+ ## 🤝 Contribuciones
+ ## ✅ Pruebas
+ ## 👀 Preview
+ 1. Página principal 🏠
+ 2. Lista de productos 📦
+ 3. Contacto 🌐
+ 4. Acerca de nosotros 🌿
+ 5. Inicio de sesión 🔑
+ 6. Registro de usuario 📝
+ 7. Gestión de Productos (CRUD) 🔝
+ ## ✨ Agradecimientos
+

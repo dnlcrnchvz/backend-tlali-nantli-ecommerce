@@ -12,6 +12,7 @@ Sabemos que esto es solo el comienzo. Este e-commerce es una pequeña muestra de
 🛠 Despliegue
 🔗 How to clone
 💻 Demo
+
 👩🏽‍💻 Autoras
 Daniela Cerón Chávez 🧜🏽‍♀️ | LinkedIn: https://www.linkedin.com/in/dnlcrnchvz/
 Estefany Contreras Sánchez 👩‍💻 | LinkedIn: https://www.linkedin.com/in/estefany-contreras-s%C3%A1nchez-/
@@ -20,4 +21,4 @@ Lizbeth Díaz Feria 🐥 | LinkedIn: https://www.linkedin.com/in/lizbethdiazf/
 Ranfi Leyva Pérez 🛫 | LinkedIn: www.linkedin.com/in/ranfileyva
 Sara Abigail Martínez Reyes 🌎 | Linkedin: www.linkedin.com/in/sara-mtz-reyes
 Alma Valeria Martínez Tamariz | LinkedIn: https://www.linkedin.com/in/almatamariz
-Lorena Maria Raygoza Ibarra | linkedIn: www.linkedin.com/in/lorena-raygoza09
+Lorena Maria Raygoza Ibarra | linkedIn: www.linkedin.com/in/lorena-raygoza09  
